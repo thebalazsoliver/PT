@@ -1,9 +1,7 @@
 import { defineConfig } from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  output: "server",
-  adapter: cloudflare(),
+  output: "static",
   vite: {
     server: {
       host: "0.0.0.0",
