@@ -196,6 +196,11 @@ const packages = [
     <script type="module" is:inline>
       import { createTimeline, onScroll } from 'https://esm.sh/animejs';
 
+      if (document.fonts?.ready) {
+        await document.fonts.ready;
+      }
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+
       const journey = document.querySelector('.journey');
       const progress = document.querySelector('.journey-progress span');
       const assembly = document.querySelector('.triangle-assembly');
@@ -213,14 +218,15 @@ const packages = [
         } else {
           const isMobile = window.matchMedia('(max-width: 600px)').matches;
           const targetRect = assembly.getBoundingClientRect();
-          const origins = steps.map((step) => {
+          const origins = steps.map((step, index) => {
             const stepRect = step.getBoundingClientRect();
             const messageRect = step.querySelector('.journey-message')?.getBoundingClientRect() ?? stepRect;
+            const pieceRect = pieces[index].getBoundingClientRect();
 
             if (isMobile) {
               return {
-                x: messageRect.right - targetRect.left - targetRect.width * 0.62,
-                y: messageRect.top + messageRect.height / 2 - targetRect.top - targetRect.height / 2,
+                x: messageRect.right - 18 - (pieceRect.left + pieceRect.width / 2),
+                y: messageRect.top + messageRect.height / 2 - (pieceRect.top + pieceRect.height / 2),
               };
             }
 
