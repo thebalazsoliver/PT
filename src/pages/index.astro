@@ -206,13 +206,24 @@ const packages = [
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.querySelectorAll('.journey-message-color').forEach((message) => {
             message.style.clipPath = 'inset(0 0 0 0)';
+            message.style.opacity = '1';
           });
           pieces.forEach((piece) => piece.style.opacity = '1');
           progress.style.transform = 'scaleX(1)';
         } else {
+          const isMobile = window.matchMedia('(max-width: 600px)').matches;
           const targetRect = assembly.getBoundingClientRect();
           const origins = steps.map((step) => {
             const stepRect = step.getBoundingClientRect();
+            const messageRect = step.querySelector('.journey-message')?.getBoundingClientRect() ?? stepRect;
+
+            if (isMobile) {
+              return {
+                x: messageRect.right - targetRect.left - targetRect.width * 0.62,
+                y: messageRect.top + messageRect.height / 2 - targetRect.top - targetRect.height / 2,
+              };
+            }
+
             return {
               x: stepRect.right - targetRect.left - targetRect.width * 0.72,
               y: stepRect.top + stepRect.height / 2 - targetRect.top - targetRect.height / 2,
@@ -237,7 +248,9 @@ const packages = [
               duration: 700,
             }, 0)
             .add('.journey-step-one .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
             }, 700)
             .add('.triangle-piece-two', {
@@ -249,7 +262,9 @@ const packages = [
               duration: 700,
             }, 1000)
             .add('.journey-step-two .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
             }, 1700)
             .add('.triangle-piece-three', {
@@ -261,7 +276,9 @@ const packages = [
               duration: 700,
             }, 2000)
             .add('.journey-step-three .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
             }, 2700)
             .add(progress, {
