@@ -90,7 +90,6 @@ const packages = [
           </div>
 
           <div class="journey-heading">
-            <p class="kicker">Three decisions. One transformation.</p>
             <h2 id="journey-title">The work changes <em>everything.</em></h2>
           </div>
 
@@ -121,17 +120,78 @@ const packages = [
               </article>
             </div>
 
-            <div class="triangle-build" role="img" aria-label="Three lime triangles roll together to form one larger three-part triangle">
+            <div class="triangle-build" role="img" aria-label="Three separate pyramid levels fill with lime liquid as the journey progresses">
               <p class="triangle-build-label"><span>Build</span> the result</p>
-              <svg class="triangle-assembly" viewBox="0 0 400 360" aria-hidden="true">
-                <polygon class="triangle-ghost" points="200,8 388,350 12,350"></polygon>
-                <polygon class="triangle-piece triangle-piece-one" points="200,8 200,205 12,350"></polygon>
-                <polygon class="triangle-piece triangle-piece-two" points="200,8 388,350 200,205"></polygon>
-                <polygon class="triangle-piece triangle-piece-three" points="12,350 200,205 388,350"></polygon>
-                <path class="triangle-dividers" d="M200 8V205M12 350L200 205L388 350"></path>
-                <polygon class="triangle-outline" points="200,8 388,350 12,350"></polygon>
+              <svg class="triangle-assembly" viewBox="0 0 420 410" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lime-liquid" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#66841f"></stop>
+                    <stop offset=".58" stop-color="#8fb830"></stop>
+                    <stop offset="1" stop-color="#afd744"></stop>
+                  </linearGradient>
+                  <clipPath id="level-one-clip">
+                    <path d="M202 18Q210 6 218 18L280 108Q288 120 273 120H147Q132 120 140 108Z"></path>
+                  </clipPath>
+                  <clipPath id="level-two-clip">
+                    <path d="M119 145Q112 145 109 153L81 238Q77 251 93 251H327Q343 251 339 238L311 153Q308 145 301 145Z"></path>
+                  </clipPath>
+                  <clipPath id="level-three-clip">
+                    <path d="M80 278Q73 278 69 287L30 378Q25 392 43 392H377Q395 392 390 378L351 287Q347 278 340 278Z"></path>
+                  </clipPath>
+                  <clipPath id="water-one-clip">
+                    <path class="water-mask water-mask-one" d="M110 120C170 120 190 120 230 120S310 120 350 120V134H110Z"></path>
+                  </clipPath>
+                  <clipPath id="water-two-clip">
+                    <path class="water-mask water-mask-two" d="M55 251C130 251 180 251 230 251S320 251 370 251V265H55Z"></path>
+                  </clipPath>
+                  <clipPath id="water-three-clip">
+                    <path class="water-mask water-mask-three" d="M5 392C100 392 160 392 220 392S350 392 415 392V410H5Z"></path>
+                  </clipPath>
+                </defs>
+
+                <path class="pyramid-shell" d="M202 18Q210 6 218 18L280 108Q288 120 273 120H147Q132 120 140 108Z"></path>
+                <g clip-path="url(#level-one-clip)">
+                  <g clip-path="url(#water-one-clip)">
+                    <path class="liquid-body" d="M110 18H350V134H110Z"></path>
+                    <g class="liquid-bubbles">
+                      <circle cx="184" cy="54" r="6"></circle><circle cx="230" cy="72" r="4"></circle><circle cx="213" cy="92" r="2.5"></circle>
+                    </g>
+                  </g>
+                  <path class="water-surface water-surface-one" d="M110 120C170 120 190 120 230 120S310 120 350 120"></path>
+                </g>
+                <path class="pyramid-outline" d="M202 18Q210 6 218 18L280 108Q288 120 273 120H147Q132 120 140 108Z"></path>
+
+                <path class="pyramid-shell" d="M119 145Q112 145 109 153L81 238Q77 251 93 251H327Q343 251 339 238L311 153Q308 145 301 145Z"></path>
+                <g clip-path="url(#level-two-clip)">
+                  <g clip-path="url(#water-two-clip)">
+                    <path class="liquid-body" d="M55 145H370V265H55Z"></path>
+                    <g class="liquid-bubbles">
+                      <circle cx="154" cy="186" r="7"></circle><circle cx="236" cy="174" r="4"></circle><circle cx="267" cy="213" r="5"></circle><circle cx="203" cy="226" r="2.5"></circle>
+                    </g>
+                  </g>
+                  <path class="water-surface water-surface-two" d="M55 251C130 251 180 251 230 251S320 251 370 251"></path>
+                </g>
+                <path class="pyramid-outline" d="M119 145Q112 145 109 153L81 238Q77 251 93 251H327Q343 251 339 238L311 153Q308 145 301 145Z"></path>
+
+                <path class="pyramid-shell" d="M80 278Q73 278 69 287L30 378Q25 392 43 392H377Q395 392 390 378L351 287Q347 278 340 278Z"></path>
+                <g clip-path="url(#level-three-clip)">
+                  <g clip-path="url(#water-three-clip)">
+                    <path class="liquid-body" d="M5 278H415V410H5Z"></path>
+                    <g class="liquid-bubbles">
+                      <circle cx="118" cy="326" r="7"></circle><circle cx="182" cy="307" r="4"></circle><circle cx="247" cy="347" r="8"></circle><circle cx="304" cy="319" r="3"></circle><circle cx="216" cy="373" r="2.5"></circle>
+                    </g>
+                  </g>
+                  <path class="water-surface water-surface-three" d="M5 392C100 392 160 392 220 392S350 392 415 392"></path>
+                </g>
+                <path class="pyramid-outline" d="M80 278Q73 278 69 287L30 378Q25 392 43 392H377Q395 392 390 378L351 287Q347 278 340 278Z"></path>
               </svg>
-              <span class="triangle-complete">Decide · Work · Results</span>
+              <span class="triangle-complete">
+                <span class="triangle-complete-step triangle-complete-one">Decide</span>
+                <i aria-hidden="true">·</i>
+                <span class="triangle-complete-step triangle-complete-two">Work</span>
+                <i aria-hidden="true">·</i>
+                <span class="triangle-complete-step triangle-complete-three">Results</span>
+              </span>
             </div>
           </div>
 
@@ -196,28 +256,80 @@ const packages = [
     <script type="module" is:inline>
       import { createTimeline, onScroll } from 'https://esm.sh/animejs';
 
+      if (document.fonts?.ready) {
+        await document.fonts.ready;
+      }
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+
       const journey = document.querySelector('.journey');
       const progress = document.querySelector('.journey-progress span');
       const assembly = document.querySelector('.triangle-assembly');
-      const pieces = [...document.querySelectorAll('.triangle-piece')];
+      const masks = [...document.querySelectorAll('.water-mask')];
+      const surfaces = [...document.querySelectorAll('.water-surface')];
       const steps = [...document.querySelectorAll('.journey-step')];
+      const waterFrames = [
+        {
+          mask: [
+            'M110 120C170 120 190 120 230 120S310 120 350 120V134H110Z',
+            'M110 79C158 67 188 92 230 79S310 67 350 79V134H110Z',
+            'M110 43C158 54 188 32 230 43S310 54 350 43V134H110Z',
+            'M110 18C170 18 190 18 230 18S310 18 350 18V134H110Z',
+          ],
+          surface: [
+            'M110 120C170 120 190 120 230 120S310 120 350 120',
+            'M110 79C158 67 188 92 230 79S310 67 350 79',
+            'M110 43C158 54 188 32 230 43S310 54 350 43',
+            'M110 18C170 18 190 18 230 18S310 18 350 18',
+          ],
+        },
+        {
+          mask: [
+            'M55 251C130 251 180 251 230 251S320 251 370 251V265H55Z',
+            'M55 205C125 191 178 218 230 205S320 191 370 205V265H55Z',
+            'M55 164C125 177 178 151 230 164S320 177 370 164V265H55Z',
+            'M55 145C130 145 180 145 230 145S320 145 370 145V265H55Z',
+          ],
+          surface: [
+            'M55 251C130 251 180 251 230 251S320 251 370 251',
+            'M55 205C125 191 178 218 230 205S320 191 370 205',
+            'M55 164C125 177 178 151 230 164S320 177 370 164',
+            'M55 145C130 145 180 145 230 145S320 145 370 145',
+          ],
+        },
+        {
+          mask: [
+            'M5 392C100 392 160 392 220 392S350 392 415 392V410H5Z',
+            'M5 342C92 326 158 357 220 342S350 326 415 342V410H5Z',
+            'M5 298C92 313 158 284 220 298S350 313 415 298V410H5Z',
+            'M5 278C100 278 160 278 220 278S350 278 415 278V410H5Z',
+          ],
+          surface: [
+            'M5 392C100 392 160 392 220 392S350 392 415 392',
+            'M5 342C92 326 158 357 220 342S350 326 415 342',
+            'M5 298C92 313 158 284 220 298S350 313 415 298',
+            'M5 278C100 278 160 278 220 278S350 278 415 278',
+          ],
+        },
+      ];
 
-      if (journey && progress && assembly && pieces.length === 3 && steps.length === 3) {
+      if (journey && progress && assembly && masks.length === 3 && surfaces.length === 3 && steps.length === 3) {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.querySelectorAll('.journey-message-color').forEach((message) => {
             message.style.clipPath = 'inset(0 0 0 0)';
+            message.style.opacity = '1';
           });
-          pieces.forEach((piece) => piece.style.opacity = '1');
+          document.querySelectorAll('.triangle-complete-step').forEach((label) => {
+            label.style.color = 'var(--lime)';
+            label.style.opacity = '1';
+          });
+          masks.forEach((mask, index) => {
+            mask.setAttribute('d', waterFrames[index].mask.at(-1));
+            surfaces[index].setAttribute('d', waterFrames[index].surface.at(-1));
+            surfaces[index].style.opacity = '.3';
+          });
           progress.style.transform = 'scaleX(1)';
         } else {
-          const targetRect = assembly.getBoundingClientRect();
-          const origins = steps.map((step) => {
-            const stepRect = step.getBoundingClientRect();
-            return {
-              x: stepRect.right - targetRect.left - targetRect.width * 0.72,
-              y: stepRect.top + stepRect.height / 2 - targetRect.top - targetRect.height / 2,
-            };
-          });
+          const isMobile = window.matchMedia('(max-width: 600px)').matches;
 
           createTimeline({
             autoplay: onScroll({
@@ -228,45 +340,75 @@ const packages = [
             }),
             defaults: { ease: 'inOut(3)' },
           })
-            .add('.triangle-piece-one', {
-              x: [origins[0].x, 0],
-              y: [origins[0].y, 0],
-              rotate: ['-1.25turn', '0turn'],
-              scale: [0.26, 1],
-              opacity: [0, 1],
-              duration: 700,
+            .add('.water-mask-one', {
+              d: waterFrames[0].mask,
+              duration: 650,
+              ease: 'linear',
+            }, 0)
+            .add('.water-surface-one', {
+              d: waterFrames[0].surface,
+              opacity: [0, 1, 1, .3],
+              duration: 650,
+              ease: 'linear',
             }, 0)
             .add('.journey-step-one .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
-            }, 700)
-            .add('.triangle-piece-two', {
-              x: [origins[1].x, 0],
-              y: [origins[1].y, 0],
-              rotate: ['1.25turn', '0turn'],
-              scale: [0.26, 1],
-              opacity: [0, 1],
-              duration: 700,
-            }, 1000)
+            }, 650)
+            .add('.triangle-complete-one', {
+              color: ['#6f746f', '#d7ff51'],
+              opacity: [.52, 1],
+              duration: 300,
+            }, 650)
+            .add('.water-mask-two', {
+              d: waterFrames[1].mask,
+              duration: 650,
+              ease: 'linear',
+            }, 950)
+            .add('.water-surface-two', {
+              d: waterFrames[1].surface,
+              opacity: [0, 1, 1, .3],
+              duration: 650,
+              ease: 'linear',
+            }, 950)
             .add('.journey-step-two .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
-            }, 1700)
-            .add('.triangle-piece-three', {
-              x: [origins[2].x, 0],
-              y: [origins[2].y, 0],
-              rotate: ['-1.25turn', '0turn'],
-              scale: [0.26, 1],
-              opacity: [0, 1],
-              duration: 700,
-            }, 2000)
+            }, 1600)
+            .add('.triangle-complete-two', {
+              color: ['#6f746f', '#d7ff51'],
+              opacity: [.52, 1],
+              duration: 300,
+            }, 1600)
+            .add('.water-mask-three', {
+              d: waterFrames[2].mask,
+              duration: 650,
+              ease: 'linear',
+            }, 1900)
+            .add('.water-surface-three', {
+              d: waterFrames[2].surface,
+              opacity: [0, 1, 1, .3],
+              duration: 650,
+              ease: 'linear',
+            }, 1900)
             .add('.journey-step-three .journey-message-color', {
-              clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
+              ...(isMobile
+                ? { opacity: [0, 1] }
+                : { clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'] }),
               duration: 300,
-            }, 2700)
+            }, 2550)
+            .add('.triangle-complete-three', {
+              color: ['#6f746f', '#d7ff51'],
+              opacity: [.52, 1],
+              duration: 300,
+            }, 2550)
             .add(progress, {
               scaleX: [0, 1],
-              duration: 3000,
+              duration: 2850,
               ease: 'linear',
             }, 0);
         }

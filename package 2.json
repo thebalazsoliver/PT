@@ -1,0 +1,24 @@
+{
+  "name": "forge-method-training",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "install:ci": "npm ci --cache .sites-runtime/npm-cache-v2",
+    "dev": "astro dev",
+    "build": "bash scripts/build-verified.sh",
+    "start": "astro dev",
+    "validate:artifact": "bash scripts/validate-artifact.sh"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "latest",
+    "astro": "latest"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  },
+  "type": "module",
+  "displayName": "Forge Method Personal Training"
+}
