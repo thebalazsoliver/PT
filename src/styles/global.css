@@ -33,7 +33,7 @@
 .triangle-build-label span{color:var(--lime)}
 .triangle-assembly{width:min(30vw,390px);max-height:44vh;overflow:visible;filter:drop-shadow(0 22px 44px rgba(0,0,0,.38))}
 .pyramid-shell{fill:none;stroke:none}
-.pyramid-outline{fill:none;stroke:#9fc83f;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 5px rgba(159,200,63,.16));pointer-events:none}
+.pyramid-outline{fill:none;stroke:#9fc83f;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:miter;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 5px rgba(159,200,63,.16));pointer-events:none}
 .liquid-body{fill:url(#lime-liquid)}
 .water-surface{fill:none;stroke:#d7ec86;stroke-width:3;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 5px rgba(175,215,68,.28))}
 .liquid-bubbles circle{fill:rgba(224,244,154,.2);stroke:rgba(224,244,154,.66);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:liquid-bubble 2.15s ease-in infinite}
