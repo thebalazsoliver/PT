@@ -218,7 +218,7 @@ const packages = [
               <ul>
                 {item.features.map((feature) => <li><span aria-hidden="true">✓</span>{feature}</li>)}
               </ul>
-              <a class:list={["button", { "button-dark": item.featured }]} href="#contact">{item.cta} <span aria-hidden="true">↗</span></a>
+              <a class:list={["button", { "button-dark": item.featured }]} href="#contact">{item.cta} <span class="package-button-arrow" aria-hidden="true"></span></a>
             </article>
           ))}
         </div>
